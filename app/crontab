@@ -1,2 +1,2 @@
-* * * * * root /usr/local/bin/node /src/app/app.js >> /var/log/cron.log 2>&1
+* * * * * root cd /src/app && /usr/local/bin/node app.js >> /var/log/cron.log 2>&1
 # An empty line is required at the end of this file for a valid cron file.
