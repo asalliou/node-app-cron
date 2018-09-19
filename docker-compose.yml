@@ -1,0 +1,7 @@
+version: "3"
+services:
+  node:
+    build: .
+    volumes:
+      - "./app:/src/app"
+    command: "cron && tail -f /var/log/cron.log"

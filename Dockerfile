@@ -2,11 +2,14 @@ FROM node:carbon
 
 RUN apt-get update && apt-get -y install cron
 
-RUN mkdir /app
-ADD app.js /app
+RUN mkdir /src
+
+WORKDIR /src
+ADD app/package.json /src/package.json
+RUN npm install
 
 # Add crontab file in the cron directory
-ADD crontab /etc/cron.d/app-cron
+ADD app/crontab /etc/cron.d/app-cron
 
 # Give execution rights on the cron job
 RUN chmod +x /etc/cron.d/app-cron
